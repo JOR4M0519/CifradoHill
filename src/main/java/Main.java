@@ -3,7 +3,7 @@ import co.edu.unbosque.view.PanelPrincipal;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) {s
         PanelPrincipal panel= new PanelPrincipal();
         panel.mostrarPanelMenu();
         double[][] a = {{4., 2.}, {1., 3.}};

@@ -5,7 +5,7 @@ import java.awt.*;
 
 public class PanelMenu extends JPanel {
 
-    private JLabel titulo;
+    private JTextArea titulo;
     private JButton encriptar, desencriptar;
 
 
@@ -35,7 +35,7 @@ public class PanelMenu extends JPanel {
         desencriptar.setBounds(166,180, 280, 45);
         add(desencriptar);
 
-        titulo= new JLabel("Menú principal cifrado de Hill");
+        titulo= new JTextArea("Menú principal cifrado de Hill");
         titulo.setFont(new Font("Century Gothic", Font.BOLD, 45));
         titulo.setBounds(140,0,345,100);
         add(titulo);
