@@ -11,7 +11,7 @@ public class PanelMenu extends JPanel {
 
     public PanelMenu() {
 
-        Font fuente=new Font("Century Gothic", Font.BOLD, 23);
+        Font fuente=new Font("Century Gothic", Font.BOLD, 20);
         setLayout(null);
         setSize(586, 533);
         setVisible(true);

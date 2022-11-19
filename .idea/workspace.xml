@@ -4,8 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0fc2d94c-c937-4676-9cb5-cf002fcf5d06" name="Changes" comment="2">
-      <changelist_data name="Lau-lalo11" email="" />
+    <list default="true" id="0fc2d94c-c937-4676-9cb5-cf002fcf5d06" name="Changes" comment="New">
+      <change afterPath="$PROJECT_DIR$/src/main/java/IngresoObjetoPanel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Vista.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,6 +47,25 @@
     &quot;last_opened_file_path&quot;: &quot;C:/Users/Lalita/git/CifradoHill&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\OneDrive - unbosque.edu.co\git\CirptografiaCifradoHill\src\main\java" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Controller" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="co.edu.unbosque.controller.Controller" />
+      <module name="CirptografiaCifradoHill" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Controller" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -53,6 +74,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1668871592361</updated>
+      <workItem from="1668871594860" duration="3443000" />
       <workItem from="1668871973349" duration="821000" />
       <workItem from="1668872807922" duration="391000" />
       <workItem from="1668882717314" duration="2453000" />

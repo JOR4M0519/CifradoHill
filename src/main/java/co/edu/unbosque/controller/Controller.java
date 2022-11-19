@@ -1,7 +1,15 @@
+package co.edu.unbosque.controller;
+
 import Jama.Matrix;
 import co.edu.unbosque.view.PanelPrincipal;
 
-public class Main {
+public class Controller {
+
+    int tabla[];
+
+    public Controller() {
+        
+    }
 
     public static void main(String[] args) {
         PanelPrincipal panel= new PanelPrincipal();
@@ -17,7 +25,9 @@ public class Main {
 //                System.out.println(ete[x][y]);
 //            }
 //        }
-        int v = 0;
+
+
+
         double[][] ete2 = matris.inverse().getArray();
         for (int x = 0; x < 2; x++) {
             for (int y = 0; y < 2; y++) {
@@ -31,6 +41,21 @@ public class Main {
 //                System.out.println(ete2[x][y]);
 //            }
 //        }
+    }
+
+    public void cargarTabla(){
+        tabla.add("#");
+        for(int i=65;i<=90;i++){
+            if(i==79){
+                tabla.add("Ñ");
+            }
+            tabla.add(Character.toString(i));
+        }
+
+        for(int i=1;i<=4;i++){
+            tabla.add(i+"");
+
+        }
     }
 
 }
