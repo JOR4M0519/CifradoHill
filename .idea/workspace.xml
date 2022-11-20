@@ -7,6 +7,7 @@
     <list default="true" id="0fc2d94c-c937-4676-9cb5-cf002fcf5d06" name="Changes" comment="2">
       <changelist_data name="Lau-lalo11" email="" />
     </list>
+    <list id="f2a2777b-2a69-425e-b089-718db6e0eacb" name="Changes by jdram" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -45,6 +46,11 @@
     &quot;last_opened_file_path&quot;: &quot;C:/Users/Lalita/git/CifradoHill&quot;
     }
     }</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Lalita\git\CifradoHill\src\main\java\co\edu\unbosque\controller" />
+    </key>
+  </component>
   <component name="RunManager" selected="Application.Controller">
     <configuration name="Controller" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="co.edu.unbosque.controller.Controller" />
@@ -84,6 +90,9 @@
       <workItem from="1668871973349" duration="821000" />
       <workItem from="1668872807922" duration="391000" />
       <workItem from="1668882717314" duration="3553000" />
+      <workItem from="1668922502459" duration="10493000" />
+      <workItem from="1668961164358" duration="4353000" />
+      <workItem from="1668966083205" duration="2487000" />
     </task>
     <servers />
   </component>
