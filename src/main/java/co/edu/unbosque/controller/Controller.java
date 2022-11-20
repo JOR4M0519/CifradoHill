@@ -29,10 +29,21 @@ public class Controller implements ActionListener {
         panel.getPanelMenu().getEncriptar().addActionListener(this);
         panel.getPanelResultado().getRegresar().addActionListener(this);
         panel.getPanelResultado().getMostrar().addActionListener(this);
+        panel.getPanelResultado().getInformacion().addActionListener(this);
 
     }
 
     public void actionPerformed(ActionEvent e) {
+
+        if (e.getActionCommand().equals("INFORMACION")) {
+            panel.mostrarInformacion("------------------------------ Información del funcionamiento -----------------------------\n" +
+                    "1. La clave y el mensaje no permiten valores numéricos, caracteres especiales,\n" +
+                    "el carácter \"ñ\" o espaciado entre letras. El espaciado se representa por medio\n" +
+                    "del carácter \"_\".\n" +
+                    "2. El tamaño del bloque a dividir la palabra solo permite valores numéricos y\n" +
+                    "debe estar en un rango de 1 al número de caracteres del mensaje.");
+        }
+
 
         if (e.getActionCommand().equals("ENCRIPTAR")) {
             encriptar = true;
@@ -54,34 +65,42 @@ public class Controller implements ActionListener {
                             && coincidirLetra(panel.getPanelResultado().getMensajeTxt())
                             && !panel.getPanelResultado().getMensajeTxt().contains("ñ")
                             && !panel.getPanelResultado().getClaveIngresadaTxt().contains("ñ")) {
-                        int fila = Integer.valueOf(panel.getPanelResultado().getFilasIngresadasTxt());
-                        if (fila < 1 || fila > panel.getPanelResultado().getMensajeTxt().length()) {
-                            System.out.println("el numero no puede ser menor y no puede ser mayor al mensaje");
-                        } else {
-                            if (panel.getPanelResultado().getClaveIngresadaTxt().length()<=(fila*fila)) {
-                                if (cargarMatrices(panel.getPanelResultado().getMensajeTxt()
-                                        , panel.getPanelResultado().getClaveIngresadaTxt(),
-                                        Integer.parseInt(panel.getPanelResultado().getFilasIngresadasTxt()))) {
-                                    if (encriptar) {
-                                        panel.getPanelResultado().setResultado(encriptar());
-                                    } else {
-                                        panel.getPanelResultado().setResultado(desencriptar());
+                        if (!panel.getPanelResultado().getMensajeTxt().contains(" ")
+                                && !panel.getPanelResultado().getClaveIngresadaTxt().contains(" ")) {
+                            int fila = Integer.valueOf(panel.getPanelResultado().getFilasIngresadasTxt());
+                            if (fila < 1 || fila > panel.getPanelResultado().getMensajeTxt().length()) {
+                                panel.mostrarInformacion("El número del bloque a dividir la palabra no puede ser menor a 1 o mayor al número\n" +
+                                        "de caracteres del mensaje.");
+                            } else {
+                                if (panel.getPanelResultado().getClaveIngresadaTxt().length() <= (fila * fila)) {
+                                    if (cargarMatrices(panel.getPanelResultado().getMensajeTxt()
+                                            , panel.getPanelResultado().getClaveIngresadaTxt(),
+                                            Integer.parseInt(panel.getPanelResultado().getFilasIngresadasTxt()))) {
+                                        if (encriptar) {
+                                            panel.getPanelResultado().setResultado(encriptar());
+                                        } else {
+                                            panel.getPanelResultado().setResultado(desencriptar());
+                                        }
                                     }
                                 } else {
-                                    System.out.println("La clave no es valida");
+                                    panel.mostrarInformacion("El número de caracteres de la clave debe ser menor a "+ (fila * fila) + " caracteres");
                                 }
-                            }else{
-                                System.out.println("La clave debe ser menor a "+(fila*fila)+" caracteres");
                             }
+                        } else {
+                            panel.mostrarInformacion("Los espaciados entre palabras no están permitidos, cambia los espaciados por\n" +
+                                    "el carácter \"_\", para que sea válido.");
                         }
+
                     } else {
-                        System.out.println("no puden haber numeros, ni ene, ");
+                        panel.mostrarInformacion("La clave y el mensaje no pueden contener números, caracteres especiales y\n" +
+                                "tampoco pueden contener el carácter \"ñ\".");
                     }
                 } else {
-                    System.out.println("Campo no ingresado");
+                    panel.mostrarInformacion("Algún campo requerido no fue ingresado, por favor ingresar todos los campos\n" +
+                            "antes de continuar.");
                 }
             } catch (NumberFormatException y) {
-                System.out.println("Ingreso de letras en vez de numeros");
+                panel.mostrarError("La clave solo permite valores numéricos.");
             }
         }
 
@@ -92,7 +111,6 @@ public class Controller implements ActionListener {
             panel.getPanelResultado().setMensajeTxt("");
             panel.getPanelResultado().setFilasIngresadasTxt("");
         }
-
 
     }
 
@@ -146,8 +164,15 @@ public class Controller implements ActionListener {
         Matrix temp = new Matrix(this.clave);
         int determinante = (int) temp.det();
         System.out.println(determinante);
-        if (determinante == 0 || tieneFactores(determinante)) return false;
-
+        if (determinante == 0 || tieneFactores(determinante)) {
+            if (determinante == 0) {
+                 panel.mostrarInformacion("El determinante de la matriz clave es igual a cero, por favor ingrese una clave distinta.");
+            } else {
+                panel.mostrarInformacion("El determinante de la matriz clave tiene factores comunes con el módulo,\n" +
+                        "por favor ingrese una clave distinta.");
+            }
+            return false;
+        }
         return true;
     }
 
@@ -160,7 +185,7 @@ public class Controller implements ActionListener {
             b = a % b;
             a = temporal;
         }
-        System.out.println(a);
+
         if (a != 1) {
             return true;
         }
@@ -187,7 +212,7 @@ public class Controller implements ActionListener {
         for (int i = 0; i < matriz[0].length; i++) {
             for (int j = 0; j < matriz.length; j++) {
                 //double x = matriz[j][i];
-                double x =(int) (Math.round(matriz[j][i]));
+                double x = (int) (Math.round(matriz[j][i]));
                 int y = 27;
                 matriz[j][i] = (x < 0) ? (y - (Math.abs(x) % y)) % y : (x % y);
                 //Convierte al alfabeto

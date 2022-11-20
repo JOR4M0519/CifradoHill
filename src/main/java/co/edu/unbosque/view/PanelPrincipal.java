@@ -35,4 +35,12 @@ public class PanelPrincipal extends JFrame {
         setContentPane(panelResultado);
     }
 
+    public void mostrarError(String mensaje){
+        JOptionPane.showMessageDialog(null,mensaje,"Error",JOptionPane.ERROR_MESSAGE);
+    }
+
+    public void mostrarInformacion(String mensaje){
+        JOptionPane.showMessageDialog(null,mensaje,"Información",JOptionPane.INFORMATION_MESSAGE);
+    }
+
 }
