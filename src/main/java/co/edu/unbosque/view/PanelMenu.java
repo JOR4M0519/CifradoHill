@@ -11,7 +11,7 @@ public class PanelMenu extends JPanel {
 
     public PanelMenu() {
 
-        Font fuente=new Font("Century Gothic", Font.BOLD, 20);
+        Font fuente=new Font("Century Gothic", Font.BOLD, 26);
         setLayout(null);
         setSize(586, 533);
         setVisible(true);
@@ -23,7 +23,7 @@ public class PanelMenu extends JPanel {
         encriptar.setBackground(new Color(217, 237, 244));
         encriptar.setBorderPainted(true);
         encriptar.setFocusPainted(false);
-        encriptar.setBounds(166,110, 280, 45);
+        encriptar.setBounds(125,160, 360, 55);
         add(encriptar);
 
         desencriptar = new JButton("Desencriptar mensaje");
@@ -32,14 +32,22 @@ public class PanelMenu extends JPanel {
         desencriptar.setBackground(new Color(217, 237, 244));
         desencriptar.setBorderPainted(true);
         desencriptar.setFocusPainted(false);
-        desencriptar.setBounds(166,180, 280, 45);
+        desencriptar.setBounds(125,260, 360, 55);
         add(desencriptar);
 
-        titulo= new JLabel("Menú principal cifrado de Hill");
-        titulo.setFont(new Font("Century Gothic", Font.BOLD, 45));
-        titulo.setBounds(140,0,345,100);
+        titulo= new JLabel ("Cifrado de Hill");
+        titulo.setFont(new Font("Century Gothic", Font.BOLD, 50));
+        titulo.setBounds(143,25,360,70);
         add(titulo);
 
+    }
+
+    public JButton getEncriptar() {
+        return encriptar;
+    }
+
+    public JButton getDesencriptar() {
+        return desencriptar;
     }
 
 }
